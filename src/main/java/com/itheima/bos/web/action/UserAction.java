@@ -1,5 +1,7 @@
 package com.itheima.bos.web.action;
 
+import java.io.IOException;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +10,17 @@ import org.springframework.stereotype.Controller;
 
 import com.itheima.bos.domain.User;
 import com.itheima.bos.service.IUserService;
+import com.itheima.bos.utils.BOSUtils;
 import com.itheima.bos.web.action.base.BaseAction;
 
 @Controller
 @Scope("prototype")
 public class UserAction extends BaseAction<User> {
-	//属性驱动，接收页面输入的验证码
+	/**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+    //属性驱动，接收页面输入的验证码
 	private String checkcode;
 	public void setCheckcode(String checkcode) {
 		this.checkcode = checkcode;
@@ -21,6 +28,28 @@ public class UserAction extends BaseAction<User> {
 	
 	@Autowired
 	private IUserService userService;
+	
+	/**
+	 * 修改密码
+	 * @throws IOException 
+	 */
+	public String editPassword() throws IOException {
+	    String f = "1";
+	    User user = BOSUtils.getUser();
+	   
+	    try{
+            userService.editPassword(user.getId(),model.getPassword());
+        }catch(Exception e){
+            f = "0";
+            e.printStackTrace();
+        }
+        ServletActionContext.getResponse().setContentType("text/html;charset=utf-8");
+        ServletActionContext.getResponse().getWriter().print(f);
+        return NONE;
+	    
+	}
+	
+	
 	
 	/**
 	 * 用户登录

@@ -21,4 +21,6 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements IUserDao {
 		}
 		return null;
 	}
+
+   
 }
