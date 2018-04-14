@@ -35,8 +35,7 @@
             <result name="list">/WEB-INF/pages/base/staff.jsp</result>
         </action>
         <!-- 地区管理 -->
-        <action name="staffAction_*" class="staffAction" method="{1}">
-            <result name="list">/WEB-INF/pages/base/regin.jsp</result>
+        <action name="regionAction_*" class="regionAction" method="{1}">
         </action>
         
 	</package>

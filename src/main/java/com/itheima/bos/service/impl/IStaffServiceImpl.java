@@ -25,6 +25,7 @@ public class IStaffServiceImpl implements IStaffService{
     public void pageQuery(PageBean pageBean) {
         staffDao.pageQuery(pageBean);
     }
+    
 
     public void deleteBatch(String ids) {
         if(StringUtils.isNotBlank(ids)) {
