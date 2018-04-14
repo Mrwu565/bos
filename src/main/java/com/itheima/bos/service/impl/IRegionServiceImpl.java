@@ -1,0 +1,35 @@
+package com.itheima.bos.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.itheima.bos.dao.IRegionDao;
+import com.itheima.bos.domain.Region;
+import com.itheima.bos.service.IRegionService;
+import com.itheima.bos.utils.PageBean;
+
+public class IRegionServiceImpl implements IRegionService {
+
+    @Autowired
+    private IRegionDao regionDao;
+    
+    public void saveBatch(List<Region> regionLists) {
+        for (Region region : regionLists) {
+            regionDao.saveOrUpdate(region);
+        }
+    }
+
+    public void pageQuery(PageBean pageBean) {
+        regionDao.pageQuery(pageBean);
+    }
+
+    public List<Region> findListByQ(String q) {
+        return regionDao.findListByQ(q);
+    }
+
+    public List<Region> findAll() {
+        return regionDao.findAll();
+    }
+
+}

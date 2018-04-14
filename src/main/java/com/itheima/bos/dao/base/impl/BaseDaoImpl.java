@@ -86,4 +86,12 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
         List rows=this.getHibernateTemplate().findByCriteria(detachedCriteria, firstResult, maxResults);
         pageBean.setRows(rows);
     }
+
+    public void saveOrUpdate(T entity) {
+            this.getHibernateTemplate().saveOrUpdate(entity);
+    }
+
+    public List<T> findByCriteria(DetachedCriteria detachedCriteria) {
+        return (List<T>) this.getHibernateTemplate().findByCriteria(detachedCriteria);
+    }
 }

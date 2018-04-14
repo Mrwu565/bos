@@ -45,20 +45,7 @@ public class StaffAction extends BaseAction<Staff> {
      * @throws IOException
      */
     public String pageQuery() throws IOException {
-        PageBean pageBean=new PageBean();
-        pageBean.setCurrentPage(page);
-        pageBean.setPageSize(rows);
-        DetachedCriteria detachedCriteria=DetachedCriteria.forClass(Staff.class);
-        pageBean.setDetachedCriteria(detachedCriteria);
-        
         staffService.pageQuery(pageBean);
-        JsonConfig jsonConfig = new JsonConfig();
-        //指定哪些属性不需要转json
-        jsonConfig.setExcludes(new String[]{"currentPage","detachedCriteria","pageSize"});
-        String json = JSONObject.fromObject(pageBean,jsonConfig).toString();
-        ServletActionContext.getResponse().setContentType("text/json;charset=utf-8");
-        ServletActionContext.getResponse().getWriter().print(json);
-
         return NONE;
     }
     
