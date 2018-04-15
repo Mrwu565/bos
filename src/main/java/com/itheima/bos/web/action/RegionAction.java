@@ -43,7 +43,7 @@ public class RegionAction extends BaseAction<Region>{
         List<Region> regionLists= new ArrayList<Region>();
         HSSFWorkbook workbook=new HSSFWorkbook(new FileInputStream(regionFile));
         HSSFSheet sheet=workbook.getSheet("Sheet1");
-        
+       
         for (Row row : sheet) {
             int rowNum=row.getRowNum();
             if(rowNum==0) {
