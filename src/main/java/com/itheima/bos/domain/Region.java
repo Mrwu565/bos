@@ -21,6 +21,10 @@ public class Region implements java.io.Serializable {
 	private Set subareas = new HashSet(0);
 
 	// Constructors
+	
+	public String getName() {
+        return province +" "+ city+" "+district;
+    }
 
 	/** default constructor */
 	public Region() {

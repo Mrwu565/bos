@@ -3,13 +3,13 @@ package com.itheima.bos.dao.impl;
 import java.io.Serializable;
 import java.util.List;
 
-
+import org.springframework.stereotype.Repository;
 
 import com.itheima.bos.dao.IRegionDao;
 import com.itheima.bos.dao.base.impl.BaseDaoImpl;
 import com.itheima.bos.domain.Region;
 
-
+@Repository
 public class IRegionDapImpl extends BaseDaoImpl<Region> implements IRegionDao {
 
     public List<Region> findListByQ(String q) {
