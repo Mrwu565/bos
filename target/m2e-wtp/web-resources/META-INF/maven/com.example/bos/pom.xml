@@ -182,7 +182,6 @@
             <version>1.2.2</version>
         </dependency>
         <!-- 引入MySQL数据库驱动依赖 -->
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
