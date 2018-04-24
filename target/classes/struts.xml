@@ -49,6 +49,10 @@
         <action name="noticebillAction_*" class="noticebillAction" method="{1}">
            <result name="noticebill_add">/WEB-INF/pages/qupai/noticebill_add.jsp</result>
         </action>
+        <!-- 分单管理 -->
+        <action name="functionAction_*" class="functionAction" method="{1}">
+           <result name="list">/WEB-INF/pages/admin/function.jsp</result>
+        </action>
         
 	</package>
 </struts>

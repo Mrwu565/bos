@@ -3,11 +3,13 @@ package com.itheima.bos.web.action;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itheima.bos.domain.Staff;
 import com.itheima.bos.service.IStaffService;
@@ -45,6 +47,7 @@ public class StaffAction extends BaseAction<Staff> {
      * @return
      * @throws IOException
      */
+    @RequiresPermissions("staff-list")
     public String pageQuery() throws IOException {
         staffService.pageQuery(pageBean);
         System.out.println(pageBean);

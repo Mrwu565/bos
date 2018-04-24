@@ -27,6 +27,7 @@ public class NoticebillAction extends BaseAction<Noticebill> {
         this.java2Json(findCustomerByTelephone, new String[] {});
         return NONE;
         }
+    
     @Autowired
     private INoticebillService noticebillService;
     
